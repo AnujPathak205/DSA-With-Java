@@ -6,30 +6,32 @@ public class _5_BipartiteGraph {
     public static boolean isBipartite(ArrayList<Integer>[] graph){
         int[] color = new int[graph.length];
         
-        for(int i = 0;i < color.length;i++){                  // 0  -> YELLOW
+        for(int i = 0;i < color.length;i++)                   // 0  -> YELLOW
             color[i] = -1;//no color                          // 1  -> BLUE
-        }                                                     //-1 -> NO COLOR
+                                                              //-1 -> NO 
+        for(int v = 0;v < graph.length;v++)
+            if(color[v] == -1 && !isBipartiteUtil(graph,color,v))
+                return false;
 
-        for(int i = 0;i < graph.length;i++){
-            if(color[i] == -1){
-                color[i] = 0;
+        return true;
+    }
 
-                Queue<Integer> queue = new ArrayDeque<>();
-                queue.add(i);
+    public static boolean isBipartiteUtil(ArrayList<Integer>[] graph,int[] color,int v){
+        color[v] = 0;
 
-                while(!queue.isEmpty()){
-                    int curr = queue.remove();
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(v);
 
-                    for(int e:graph[curr]){
-                        if(color[e] == -1){
-                            color[e] = color[curr] == 0 ? 1 : 0;
-                            queue.add(e);
-                        }else if(color[e] == color[curr]){
-                            return false;//NOT BIPARTITE
-                        }
-                    }
+        while(!queue.isEmpty()){
+            int curr = queue.remove();
+
+            for(int e:graph[curr])
+                if(color[e] == -1){
+                    color[e] = color[curr] == 0 ? 1 : 0;
+                    queue.add(e);
+                }else if(color[e] == color[curr]){
+                    return false;//NOT BIPARTITE
                 }
-            }
         }
 
         return true;

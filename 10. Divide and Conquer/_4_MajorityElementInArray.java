@@ -52,7 +52,7 @@ public class _4_MajorityElementInArray {
 
     public static int countInRange(int[] arr,int num,int lo,int hi){
         int count = 0;
-        for(int i = 0;i < arr.length;i++){
+        for(int i = lo;i <= hi;i++){
             if(arr[i] == num){
                 count++;
             }

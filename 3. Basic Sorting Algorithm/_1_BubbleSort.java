@@ -12,6 +12,19 @@ public class _1_BubbleSort {
         }
     }
 
+    public static void BubbleSort2(int[] arr){
+        int n = arr.length;
+        for(int i = n-2;i >= 0;i--){
+            for(int j = 0;j <= i;j++){
+                if(arr[j] > arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
     public static void printArray(int[] arr){
         for(int element:arr){
             System.out.print(element+" ");
@@ -25,7 +38,7 @@ public class _1_BubbleSort {
         System.out.print("Array elements before bubble sort:");
         printArray(Array);
 
-        BubbleSort(Array);
+        BubbleSort2(Array);
         System.out.print("Array elements After bubble sort:");
         printArray(Array);
     }

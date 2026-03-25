@@ -20,6 +20,7 @@ public class _12_FastExponentiation{
         return ans;
     }
 
+
     public static void main(String[] args) {
         System.out.println(normalExponentiation(5, 3));
         System.out.println(normalExponentiation(2, 6));

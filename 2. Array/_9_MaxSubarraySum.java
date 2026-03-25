@@ -39,12 +39,11 @@ public class _9_MaxSubarraySum {
     }
 
     public static int MaxSubArraySum3_Kadans(int[] arr){
-        int maxSum = Integer.MIN_VALUE;
-        int currSum = 0;
-        for(int i = 0;i < arr.length;i++){
-            currSum += arr[i];
-            if(currSum < 0)currSum = 0;
-            maxSum = Math.max(currSum, maxSum);
+        int maxSum = arr[0];
+        int currSum = arr[0];
+        for(int i = 1;i < arr.length;i++){
+            currSum = Math.max(currSum+arr[i],arr[i]);
+            maxSum = Math.max(currSum,maxSum);
         }
         return maxSum;
     }

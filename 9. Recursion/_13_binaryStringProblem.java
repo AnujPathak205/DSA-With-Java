@@ -22,7 +22,7 @@ public class _13_binaryStringProblem {
     
        printBinaryWithoutCon1(n-1, 0, str+'0');
        if(lastPlace == 0){
-        printBinaryWithoutCon1(n-1, 1, str+'1');
+            printBinaryWithoutCon1(n-1, 1, str+'1');
        }
         
     }

@@ -4,8 +4,8 @@ public class _4_CycleDetection {
     public static boolean detectCycle(ArrayList<Integer>[] graph){
         boolean[] visited = new boolean[graph.length];
         for(int i = 0;i < graph.length;i++){
-            if(!visited[i]){
-                if(detectCycleUtil(graph,visited,i,-1)) return true;
+            if(!visited[i] && detectCycleUtil(graph,visited,i,-1)){
+               return true;
             }
         }
         return false;
@@ -13,7 +13,6 @@ public class _4_CycleDetection {
 
     public static boolean detectCycleUtil(ArrayList<Integer>[] graph,boolean[] visited,int curr,int par){
         visited[curr] = true;
-        System.out.println(curr);
 
         for(int e:graph[curr]){
             if(!visited[e]){
