@@ -1,1 +1,7 @@
-.class
+*.class
+
+*.log
+*.tmp
+
+.vscode/
+.idea
