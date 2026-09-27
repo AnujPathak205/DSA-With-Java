@@ -72,18 +72,29 @@ class MinHeap {
         return list.toString();
     }
 
+    public static void heapSort(int[] arr) {
+        MinHeap heap = new MinHeap();
+        
+        for (int i:arr) {
+            heap.add(i);
+        }
+
+        for (int i = 0;i < arr.length;i++) {
+            arr[i] = heap.remove();
+        }
+    }
 }
 
 public class _1_ImplementationOfHeap {
     public static void main(String[] args) {
         MinHeap heap = new MinHeap();
 
-        heap.add(15);
-        heap.add(3);
-        heap.add(5);
-        heap.add(4);
+        int[] arr = {1,3,2,4,6,5};
 
+        MinHeap.heapSort(arr);
 
-        System.out.println(heap.remove());
+        for (int i:arr) {
+            System.out.println(i);
+        }
     }
 }
